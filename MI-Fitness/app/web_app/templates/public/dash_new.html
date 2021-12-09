@@ -1,0 +1,146 @@
+
+{% extends "public/templates/public_template.html"%}
+
+{%block title%}About{%endblock title%}
+
+{% block main %}
+{% if current_user.info.dataset %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="wrapper-new">
+<div class="container">
+    <div class="row p-t-30">
+        <div class="services-title text-center mb-80">
+            <h2>User Statistics</h2>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="services-item text-center">
+                    <i class="fa fa-bus blue"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">You spent</h6>
+                    <h2 class="text-right"><h2 class="count">{{results[0]}}</h2><span class="counter-text">Mins</span></h2>
+                    <p class="m-b-0 text">On Bus</p>
+                </div>
+                </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+            <div class="services-item text-center">
+                    <i class="fa fa-car green"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">You spent</h6>
+                    <h2 class="text-right"><h2 class="count">{{results[1]}}</h2><span class="counter-text">Mins</span></h2>
+                    <p class="m-b-0 text">On Car</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-hand-paper-o red"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">You spent</h6>
+                    <h2 class="text-right"><h2 class="count">{{results[2]}}</h2><span class="counter-text">Mins</span></h2>
+                    <p class="m-b-0 text">still</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-train yellow"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">You spent</h6>
+                    <h2 class="text-right"><h2 class="count">{{results[3]}}</h2><span class="counter-text">Mins</span></h2>
+                    <p class="m-b-0 text">On the Train</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-male dark-purple"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">You spent</h6>
+                    <h2 class="text-right"><h2 class="count">{{results[4]}}</h2><span class="counter-text">Mins</span></h2>
+                    <p class="m-b-0 text">Walking</p>
+                </div>
+            </div>
+        </div>
+
+            <div class="row p-t-30">
+        <div class="services-title text-center mb-80">
+            <h2>Our Recommendation</h2>
+        </div>
+
+
+         <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-fire pink"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">Your daily Calories consumption (Burn)</h6>
+                    <h2 class="text-right"><h2 class="count">{{calories}}</h2><span class="counter-text">Calories</span></h2>
+                    <p class="m-b-0 text">Consume(Eat) same amount to keep the balance</p>
+                </div>
+            </div>
+        </div>
+        {% if diet %}
+        <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-calendar black"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">try {{diet[0]}} of 500 calories for</h6>
+                    <h2 class="text-right"><h2 class="count">{{diet[1]}}</h2><span class="counter-text">Days</span></h2>
+                    <p class="m-b-0 text"></p>
+                </div>
+            </div>
+        </div>
+        {%else%}
+        <div class="col-lg-4 col-md-6">
+<div class="services-item text-center">
+                    <i class="fa fa-check green"></i>
+                    <div class="services-content">
+                    <h6 class="m-b-20">Keep your diet at this range</h6>
+                    <p class="m-b-0 text">You're in good BMI range</p>
+                </div>
+            </div>
+        </div>
+        {%endif%}
+        {%if acts %}
+                {%for act in acts%}
+
+            <div class="col-lg-4 col-md-6">
+                <div class="services-item text-center">
+                                    <i class="fa fa-exclamation-circle yellow"></i>
+                                    <div class="services-content">
+                                    <h6 class="m-b-20">Recommendation</h6>
+                                    <p class="m-b-0 text">{{act}}</p>
+                                </div>
+                            </div>
+                        </div>
+            
+            {%endfor%}
+        {%endif%}
+       
+
+	</div>
+</div>
+{% else%}
+{%include "public/messages.html"%}
+<div class="card text-center">
+    <div class="card-header">
+      Sync manager
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Assesment</h5>
+      <p class="card-text">To access dashboard and get reccomendations you neeed to sync your device first</p>
+      <a href="{{url_for('task')}}" class="btn btn-primary">Sync your device</a>
+    </div>
+    <div class="card-footer text-muted">
+      Fit AI
+    </div>
+</div>
+<div>
+</div>
+
+{%endif%}
+{% endblock main %}
+

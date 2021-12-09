@@ -1,0 +1,69 @@
+{% extends "public/templates/public_template.html"%}
+
+{%block title%}About{%endblock title%}
+
+{% block main %} 
+<div class='wrapper1'>
+{%include "public/messages.html"%}
+<div class="wrapper">
+    <div class="profile-card js-profile-card">
+      <div class="profile-card__img">
+        <img src="{{image_file}}" alt="profile card">
+      </div>
+  
+      <div class="profile-card__cnt js-profile-cnt">
+        <div class="profile-card__name">{{current_user.fname}} {{current_user.lname}}</div>
+        <div class="profile-card__txt">username:<strong>{{current_user.username}}</strong></div>
+        <div class="profile-card__txt">Age:<strong>{{current_user.info.age}}</strong></div>
+        <div class="profile-card-loc">
+          <span class="profile-card-loc__icon">
+            <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+          </span>
+        </div>
+        {% if info %}
+        <div class="profile-card-inf">
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">{{info.height/100}} m</div>
+            <div class="profile-card-inf__txt">Height</div>
+          </div>
+  
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">{{info.weight}} kg</div>
+            <div class="profile-card-inf__txt">Weight</div>
+          </div>
+  
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">{{info.bmi}}</div>
+            <div class="profile-card-inf__txt">BMI</div>
+          </div>
+  
+          <div class="profile-card-inf__item">
+            <div class="profile-card-inf__title">{{info.gender}}</div>
+            <div class="profile-card-inf__txt">Gender</div>
+          </div>
+        </div>
+        <div class="profile-card-ctr">
+            <a href="{{url_for('account_update')}}">
+                <button class="profile-card__button button--orange" > Modify</button>
+            </a>
+        </div>
+        {%else%}
+        <div class="profile-card-ctr">
+          <a href="{{url_for('account_update')}}">
+              <button class="profile-card__button button--orange" > Add info</button>
+          </a>
+      </div>
+
+        {%endif%}
+      </div>
+  
+        <div class="profile-card__overlay js-message-close"></div>
+      </div>
+  
+    </div>
+  
+  </div>
+</div>
+  
+ 
+{% endblock main %}

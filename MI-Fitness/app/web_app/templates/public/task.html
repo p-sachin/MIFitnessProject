@@ -1,0 +1,32 @@
+{% extends "public/templates/public_template.html"%}
+
+{%block title%}{{title}}{%endblock title%}
+
+{% block main %} 
+{%include "public/messages.html"%}
+<div class="container wrap-login100">
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+                    <div class="services-title-sync text-center mb-80">
+            <h2>Sync Your Device</h2>
+        </div>
+            <div class="form-group input-field">
+                {{ form.csv.label(class="form-control-label") }}
+                {{ form.csv(class="form-control form-control-file") }}
+                {% if form.csv.errors %}
+                        {% for error in form.csv.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group button-task">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock main %}

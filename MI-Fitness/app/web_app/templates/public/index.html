@@ -1,0 +1,49 @@
+{% extends "public/templates/public_template.html"%}
+
+{%block title%}home{%endblock title%}
+
+{% block main %} 
+{%include "public/messages.html"%}
+<!--<div class="card text-center">
+    <div class="card-header">
+      Sync manager
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Assesment</h5>
+      <p class="card-text">Let our model recommend</p>
+      <a href="{{url_for('task')}}" class="btn btn-primary">Start assessment</a>
+    </div>
+    <div class="card-footer text-muted">
+      Fit AI
+    </div>
+</div>
+-->
+
+<!-- Home Content Starts -->
+<div class="container-fluid">
+  <section id="home-content" data-scroll-index="0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 offset-lg-1">
+      <div class="home-text">
+        <div class="home-text-inner">
+        <h2>Welcome to MI FIT</h2>
+        <h4>We provide you the recommendation to improve and maintain your healthy lifestyle</h4>
+        <h1 class="cd-headline clip">
+        <span class="cd-words-wrapper">
+          <b class="is-visible"></b>
+        </span>
+      </h1>
+          <p>
+          Click on the button below to start your assessment. 
+          </p>
+          <a href="{{url_for('task')}}" class="btn btn-primary hire-me">Start Assessment</a>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Home Section Ends -->
+{% endblock main %}

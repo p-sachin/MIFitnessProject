@@ -1,0 +1,20 @@
+{% extends "public/templates/public_template.html"%}
+
+{%block title%}home{%endblock title%}
+
+{% block main %} 
+{%include "public/messages.html"%}
+<div class="card text-center">
+    <div class="card-header">
+      Sync manager
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Assesment</h5>
+      <p class="card-text">To sync your device and get reccomendation, you should first add your physical info</p>
+      <a href="{{url_for('account_update')}}" class="btn btn-primary">Add your info</a>
+    </div>
+    <div class="card-footer text-muted">
+      Fit AI
+    </div>
+</div>
+{% endblock main %}

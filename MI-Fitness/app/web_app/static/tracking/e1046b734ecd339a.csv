@@ -1,0 +1,2 @@
+timestamp,bus,car,still,train,walking,diet recommendation,calories,action recommendation
+0,2021-11-14 01,6.0,9.0,10.0,29.0,4.0,"['calorie deficit', 913.0]",3236,"['You are spending your more on transport. Step outside, breathe some \n        fresh air, avoid spending too much time in closed area.(in the crowd)']"
